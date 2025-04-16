@@ -1,0 +1,4 @@
+
+-- algumacoisa
+
+CREATE DATABASE ESCOLA
