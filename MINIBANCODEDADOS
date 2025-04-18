@@ -1,0 +1,58 @@
+CREATE DATABASE mercado;
+
+use mercado;
+
+CREATE TABLE produtos(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(255) NOT NULL,
+	quantidade INT NOT NULL,
+	preco DECIMAL (9,2) NOT NULL,
+	ativo BOOLEAN NOT NULL DEFAULT (TRUE)
+);
+
+/* mostrando tabela produtos:
+ 
+  desc produtos;
+*/
+
+CREATE TABLE clientes(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(255) NOT NULL,
+	cpf VARCHAR(14) NOT NULL,
+	telefone VARCHAR(100),
+	ativo BOOLEAN NOT NULL DEFAULT(TRUE)
+);
+
+
+CREATE TABLE pedidos(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	id_cliente INT NOT NULL,
+	id_produtos INT NOT NULL,
+	quantidade INT NOT NULL,
+	total DECIMAL(9, 2) NOT NULL,
+	FOREIGN KEY (id_cliente) REFERENCES clientes(id),
+	FOREIGN KEY (id_produtos) REFERENCES produtos(id)
+);
+
+
+999
+ --INSERINDO DADOS NAS TABELAS
+
+ INSERT INTO clientes (id,nome,cpf,telefone) VALUES(00001, 'Emma Thomas', '25551456801', '46999777026');
+
+ INSERT INTO produtos (id,nome,quantidade,preco) VALUES(0005, 'SapatoLascou-se', 234, 30.99);
+
+ INSERT INTO pedidos (id, id_cliente, id_produtos, quantidade, total) VALUES(0017,00001, '0005', 2, 61.98);
+ 
+ UPDATE mercado SET produtos = “ SapatoLascou” WHERE nome = “GUILHERME”;
+
+
+
+SELECT *  FROM  (nome da tabela);
+
+
+
+
+
+
+
